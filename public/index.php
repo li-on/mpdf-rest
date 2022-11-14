@@ -65,5 +65,4 @@ foreach($doc as $d){
 	}
 }
 
-$mpdf->WriteHTML('<h1>Hello world!</h1>');
-$mpdf->Output();
+$mpdf->Output('document.pdf','D');
