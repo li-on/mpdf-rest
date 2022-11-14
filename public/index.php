@@ -29,7 +29,8 @@ if(defined('MR_FONTDATA')){
 
 $mpdf_config = [
 	'fontDir' => array_merge($fontDirs, [__DIR__.'/../fonts']),
-	'fontdata' => $fontData
+	'fontdata' => $fontData,
+	'tempDir' => __DIR__.'/../temp'
 ];
 
 if(defined('MR_DEFAULT_FONT')){
