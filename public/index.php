@@ -68,7 +68,7 @@ foreach($doc as $d){
 			$mpdf->SetPageTemplate($id);
 			break;
 		case 'image':
-			$mpdf->($d['file'], $d['x'], $d['y'], $d['w']??0, $d['h']??0, $d['type']??'', $d['link']??'', $d['paint']??true, $d['constrain']??true, $d['watermark']??false, $d['shownoimg']??true, $d['allowvector']??true);
+			$mpdf->Image($d['file'], $d['x'], $d['y'], $d['w']??0, $d['h']??0, $d['type']??'', $d['link']??'', $d['paint']??true, $d['constrain']??true, $d['watermark']??false, $d['shownoimg']??true, $d['allowvector']??true);
 			break;	
 			
 	}
