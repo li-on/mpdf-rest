@@ -33,9 +33,9 @@ Service requires 2 parameter, encoded in JSON:
 
 ```
 [
-	[type: 'html', html: '<h1>Demo!</h1>'],
-	[type: 'page', orientation: 'P'],
-	[type: 'html', html: '<h1>Demo!</h1>'],
+	{mpdftype: "html", html: "<h1>Demo!</h1>"},
+	{mpdftype: "page", orientation: "P"},
+	{mpdftype: "html", html: "<h1>Demo!</h1>"},
 ]
 
 ```

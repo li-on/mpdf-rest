@@ -49,12 +49,17 @@ $mpdf = new \Mpdf\Mpdf($mpdf_config);
 $mpdf->charset_in = 'UTF-8';
 
 foreach($doc as $d){
-	switch($d['type']){
+	switch($d['mpdftype']){
 		case 'html':
 			$mpdf->WriteHTML($d['html']);
 			break;
 		case 'page':
 			$mpdf->AddPage($d['orientation']??'');
+			break;
+		case 'import':
+			$pc = $mpdf->SetSourceFile($d['file']);
+			$id = $mpdf->ImportPage($d['pageNumber']??$pc);
+			$mpdf->UseTemplate($id);
 			break;
 		case 'template':
 			$pc = $mpdf->SetSourceFile($d['file']);
@@ -62,6 +67,9 @@ foreach($doc as $d){
 			$mpdf->UseTemplate($id);
 			$mpdf->SetPageTemplate($id);
 			break;
+		case 'image':
+			$mpdf->($d['file'], $d['x'], $d['y'], $d['w']??0, $d['h']??0, $d['type']??'', $d['link']??'', $d['paint']??true, $d['constrain']??true, $d['watermark']??false, $d['shownoimg']??true, $d['allowvector']??true);
+			break;	
 			
 	}
 }
