@@ -51,7 +51,7 @@ $mpdf->charset_in = 'UTF-8';
 foreach($doc as $d){
 	switch($d['mpdftype']){
 		case 'html':
-			$mpdf->WriteHTML($d['html']);
+			$mpdf->WriteHTML($d['html'],$d['mode']??0,$d['init']??true,$d['close']??true);
 			break;
 		case 'page':
 			$mpdf->AddPage($d['orientation']??'');
